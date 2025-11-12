@@ -12,12 +12,12 @@ Exemple : "La recherche par email ne fonctionnait pas correctement" ou "Ajout de
 
 ## Type de changement
 
-- [ ] Bugfix
-- [ ] Nouvelle fonctionnalité
-- [ ] Amélioration / Refactor
-- [ ] Documentation
-- [ ] Tests
-- [ ] CI/CD / Qualité du code
+- [x] Bugfix
+- [x] Nouvelle fonctionnalité
+- [x] Amélioration / Refactor
+- [x] Documentation
+- [x] Tests
+- [x] CI/CD / Qualité du code
 
 ## Checklist avant de soumettre
 
@@ -103,4 +103,4 @@ Liste des changements principaux :
 
 ---
 
-**Merci pour cette revue ! 🚀**
+**Merci pour cette revue :D ! 🚀**
