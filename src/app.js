@@ -4,7 +4,6 @@ const swaggerUi = require('swagger-ui-express');
 const x = require('./routes/students');
 const y = require('./routes/courses');
 
-const z = require('../swagger.json');
 const app = express();
 app.use(express.json());
 
@@ -17,7 +16,7 @@ const options = {
 };
 
 const swaggerSpec = swaggerJSDoc(options);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(z));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 //app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
@@ -32,7 +31,7 @@ app.use((req, res) => {
   res.status(404).json({ error: 'Not Found' });
 });
 
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Internal Server Error' });
 });
