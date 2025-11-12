@@ -12,8 +12,8 @@ const storage = require('../services/storage');
 exports.listCourses = (req, res) => {
   let courses = storage.list('courses');
   const { title, teacher, page = 1, limit = 10 } = req.query;
-  if (title) courses = courses.filter(c => c.title.includes(title));
-  if (teacher) courses = courses.filter(c => c.teacher.includes(teacher));
+  if (title) courses = courses.filter((c) => c.title.includes(title));
+  if (teacher) courses = courses.filter((c) => c.teacher.includes(teacher));
   const start = (page - 1) * limit;
   const paginated = courses.slice(start, start + Number(limit));
   res.json({ courses: paginated, total: courses.length });
@@ -99,11 +99,45 @@ exports.deleteCourse = (req, res) => {
   return res.status(204).send();
 };
 
+/**
+ * @swagger
+ * /courses/{id}:
+ *   put:
+ *     summary: Mettre à jour un cours
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         description: ID du cours à mettre à jour
+ *         schema:
+ *           type: integer
+ *     requestBody:
+ *       required: true
+ *       description: Les champs à mettre à jour (title et/ou teacher)
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *                 description: Nouveau titre du cours (doit être unique)
+ *               teacher:
+ *                 type: string
+ *                 description: Nom du nouvel enseignant
+ *     responses:
+ *       200:
+ *         description: Cours mis à jour avec succès
+ *       400:
+ *         description: Paramètres invalides ou titre déjà existant
+ *       404:
+ *         description: Cours non trouvé
+ */
 exports.updateCourse = (req, res) => {
   const course = storage.get('courses', req.params.id);
   if (!course) return res.status(404).json({ error: 'Course not found' });
   const { title, teacher } = req.body;
-  if (title && storage.list('courses').find(c => c.title === title && c.id !== course.id)) {
+  if (title && storage.list('courses').find((c) => c.title === title && c.id !== course.id)) {
     return res.status(400).json({ error: 'Course title must be unique' });
   }
   if (title) course.title = title;
