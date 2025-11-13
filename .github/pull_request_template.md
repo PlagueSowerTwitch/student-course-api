@@ -21,14 +21,14 @@ Exemple : "La recherche par email ne fonctionnait pas correctement" ou "Ajout de
 
 ## Checklist avant de soumettre
 
-- [ ] Mon code suit les standards du projet (ESLint / Prettier)
-- [ ] Les tests unitaires et d’intégration sont complets et passent (`npm test`)
-- [ ] La couverture de tests est mise à jour
-- [ ] Les endpoints Swagger sont documentés correctement
-- [ ] Les changements sont intégrés dans la pipeline CI/CD
-- [ ] Codacy / SonarQube ne remonte pas d’issues bloquantes
-- [ ] Le dépôt reste propre et structuré
-- [ ] Les commits sont clairs et descriptifs
+- [x] Mon code suit les standards du projet (ESLint / Prettier)
+- [x] Les tests unitaires et d’intégration sont complets et passent (`npm test`)
+- [x] La couverture de tests est mise à jour
+- [x] Les endpoints Swagger sont documentés correctement
+- [x] Les changements sont intégrés dans la pipeline CI/CD
+- [x] Codacy / SonarQube ne remonte pas d’issues bloquantes
+- [x] Le dépôt reste propre et structuré
+- [x] Les commits sont clairs et descriptifs
 
 ## Modifications apportées
 
